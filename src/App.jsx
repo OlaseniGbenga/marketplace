@@ -1,17 +1,34 @@
 import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
+// pages
 import Home from "./pages/home";
+import Login from "./pages/login";
+import Signup from "./pages/signup";
+import NotFoundPage from "./pages/notfoundpage";
+
+
+// component
+import Top from "./component/top";
+
+
 
 function App() {
-  
-
   return (
-    
-      <div className='bg-red-600'>
-        <Home/>
-      </div>
+    <div>
+      <Router>
+        {/* <Header /> */}
+        <Top/>
+        <Routes>
+          <Route exact path="/" element={<Home/>} />
+          <Route exact path="/login" element={<Login />} />
+          <Route exact path="/signup" element={<Signup />} />
+          <Route path="*" element={<NotFoundPage/>} />
+        </Routes>
       
-    
-  )
+      </Router>
+    </div>
+  );
 }
 
-export default App
+export default App;
