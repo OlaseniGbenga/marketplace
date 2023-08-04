@@ -10,6 +10,7 @@ import NotFoundPage from "./pages/notfoundpage";
 
 // component
 import Top from "./component/top";
+import Footer from "./component/footer";
 
 
 
@@ -25,7 +26,7 @@ function App() {
           <Route exact path="/signup" element={<Signup />} />
           <Route path="*" element={<NotFoundPage/>} />
         </Routes>
-      
+      <Footer/>
       </Router>
     </div>
   );
