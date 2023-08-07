@@ -54,7 +54,7 @@ function Footer() {
       </div>
 
       <div className="border border-l-0 border-y-1 border-r-1 border-solid border-Black flex flex-col flex flex-col justify-between p-10">
-        <h1 className="text-Gray font-medium text-2xl" >Shop</h1>
+        <h1 className="text-Gray font-medium text-2xl">Shop</h1>
         <div className="font-medium">
           <p>All Products</p>
           <p>Fresh Flowers</p>
@@ -64,13 +64,24 @@ function Footer() {
           <p>Aroma Candles</p>
           <p>Freshener Diffuser</p>
         </div>
-        <h1  className="text-Gray font-medium text-2xl">Service</h1>
+        <h1 className="text-Gray font-medium text-2xl">Service</h1>
         <div className="font-medium">
           <p>Flower Subcription</p>
           <p>Wedding & Event Decor</p>
         </div>
       </div>
-      <div className="border border-l-0 border-y-1 border-r-1 border-solid border-Black flex flex-col flex flex-col justify-between p-10"></div>
+      <div className="border border-l-0 border-y-1 border-r-1 border-solid border-Black flex flex-col flex flex-col p-10">
+        <h1 className="text-Gray font-medium text-2xl">About Us</h1>
+        <div className="mt-6">
+          <p>Our Story</p>
+          <p>Blog</p>
+        </div>
+        <div className="mt-6">
+          <p>Shipping & Return</p>
+          <p>Terms & Conditions</p>
+          <p>Private Policy</p>
+        </div>
+      </div>
     </div>
   );
 }
