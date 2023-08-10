@@ -11,6 +11,9 @@ import NotFoundPage from "./pages/notfoundpage";
 // component
 import Top from "./component/top";
 import Footer from "./component/footer";
+import Contact from "./pages/contact";
+import Cart from "./pages/cart";
+import Signin from "./pages/signin";
 
 
 
@@ -24,9 +27,12 @@ function App() {
           <Route exact path="/" element={<Home/>} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/signup" element={<Signup />} />
+          <Route exact path="/contact" element={<Contact/>} />
+          <Route exact path="/cart" element={<Cart/>} />
+          <Route exact path="/signin" element={<Signin/>} />
           <Route path="*" element={<NotFoundPage/>} />
         </Routes>
-      <Footer/>
+        <Footer/>
       </Router>
     </div>
   );

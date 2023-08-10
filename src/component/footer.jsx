@@ -10,6 +10,8 @@ import {
   faTelegram,
 } from "@fortawesome/free-brands-svg-icons";
 
+import {faBars} from"@fortawesome/free-solid-svg-icons";
+
 function Footer() {
   return (
     <div className="grid lg:grid-cols-4 md:grid-cols-2   h-9">
@@ -50,6 +52,7 @@ function Footer() {
           <FontAwesomeIcon icon={faFacebookF} />
           <FontAwesomeIcon icon={faXTwitter} />
           <FontAwesomeIcon icon={faTelegram} />
+          <FontAwesomeIcon icon={faBars} />
         </div>
       </div>
 
