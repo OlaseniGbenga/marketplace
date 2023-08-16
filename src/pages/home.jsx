@@ -6,16 +6,16 @@ function Home() {
   return (
     <div class="">
       <div className="grid xl:grid-cols-2 ">
-        <div className="p-20 ">
+        <div className="sm:p-20 p-8 ">
           <div>
             <span>
-              <p className="text-[67px] font-semibold leading-[80.4px]">
-                Kyiv 
+              <p className="text-[33px] sm:text-[67px] font-semibold leading-[80.4px]">
+                Kyiv
               </p>
-              <p className="text-[67px] font-semibold leading-[80.4px]">
+              <p className="text-[33px] sm:text-[67px] font-semibold leading-[80.4px]">
                 LuxeBouquets
               </p>
-              <span className="text-[40px] font-semibold absolute top-[250px] left-[500px]">
+              <span className="text-[33px] font-semibold absolute top-[250px] left-[100px] sm:left-[500px]">
                 ®
               </span>
             </span>
@@ -38,28 +38,36 @@ function Home() {
         <div className=" grid grid-cols-2 grid-rows-2">
           <div className="border border-solid border-black border-r-0 border-t-0 p-6 flex flex-col justify-between items-center">
             <div></div>
-            <p className="font-semibold text-[38px]">Fresh Flowers</p>
+            <p className="font-semibold text-[8px] sm:text-[38px]">
+              Fresh Flowers
+            </p>
             <span className="flex items-center">
-              <p className="pr-4 font-semibold">Shop now</p> <FontAwesomeIcon icon={faArrowRight} />
+              <p className="pr-4 font-semibold">Shop now</p>{" "}
+              <FontAwesomeIcon icon={faArrowRight} />
             </span>
           </div>
           <div className="">
-           
             <img src="/images/card item.png " className="h-full w-full"></img>
           </div>
           <div className="">
-           
-            <img src="/images/card item (2).png " className="h-full w-full"></img>
+            <img
+              src="/images/card item (2).png "
+              className="h-full w-full"
+            ></img>
           </div>
           <div className="border border-solid border-black border-r-0 border-t-0 p-6 flex flex-col justify-between items-center">
             <div></div>
-            <p className="font-semibold text-[38px]">Dried Flowers</p>
+            <p className="font-semibold text-[8px] sm:text-[38px]">
+              Dried Flowers
+            </p>
             <span className="flex items-center">
-            <FontAwesomeIcon icon={faArrowLeft} />  <p className="pl-4 font-semibold">Shop now</p> 
+              <FontAwesomeIcon icon={faArrowLeft} />{" "}
+              <p className="pl-4 font-semibold">Shop now</p>
             </span>
           </div>
         </div>
-      </div>
+      </div> 
+     
     </div>
   );
 }

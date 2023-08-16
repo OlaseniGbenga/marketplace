@@ -48,7 +48,7 @@ function Top() {
         </div>
 
         {/* nav for small screen */}
-       { isMavVisible && (<div className="md:hidden  flex justify-between border solid border-Black">
+       { isMavVisible && (<div className="md:hidden  flex justify-between border solid border-Black ">
           <span onClick={toggleNavVisibility} className="p-4 border border-y-0 border-l-0 border-x-1 border-Black">
             <FontAwesomeIcon icon={faBars} />
           </span>

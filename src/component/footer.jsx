@@ -14,8 +14,8 @@ import {faBars} from"@fortawesome/free-solid-svg-icons";
 
 function Footer() {
   return (
-    <div className="grid lg:grid-cols-4 md:grid-cols-2   h-9 w-[max">
-      <div className="border border-y-1 border-r-1 border-solid border-Black flex flex-col justify-between p-10  ">
+    <div className="grid lg:grid-cols-4 md:grid-cols-2   h-9 ">
+      {/* <div className="border border-y-1 border-r-1 border-solid border-Black flex flex-col justify-between p-4 sm:p-10  ">
         <p>
           Remember to offer beautiful flowers from Kyiv LuxeBouquets Valentines
           Day, Mothers Day, Christmas... Reminds you 7 days before. No spam or
@@ -84,7 +84,9 @@ function Footer() {
           <p>Terms & Conditions</p>
           <p>Private Policy</p>
         </div>
-      </div>
+      </div> */}
+
+      
     </div>
   );
 }
