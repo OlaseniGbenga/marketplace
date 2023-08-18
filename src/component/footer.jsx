@@ -10,12 +10,13 @@ import {
   faTelegram,
 } from "@fortawesome/free-brands-svg-icons";
 
-import {faBars} from"@fortawesome/free-solid-svg-icons";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 function Footer() {
   return (
     <div className="grid lg:grid-cols-4 md:grid-cols-2   h-9 ">
-      {/* <div className="border border-y-1 border-r-1 border-solid border-Black flex flex-col justify-between p-4 sm:p-10  ">
+      {/* div # */}
+      <div className="border border-y-1 border-r-1 border-solid border-Black flex flex-col justify-between p-4 sm:p-10  ">
         <p>
           Remember to offer beautiful flowers from Kyiv LuxeBouquets Valentines
           Day, Mothers Day, Christmas... Reminds you 7 days before. No spam or
@@ -31,7 +32,8 @@ function Footer() {
           Remind
         </button>
       </div>
-      <div className="border border-l-0 border-y-1 border-r-1 border-solid border-Black flex flex-col justify-between p-10">
+      {/* div # */}
+      <div className="border border-l-0 border-y-1 border-r-1 border-solid border-Black flex flex-col justify-between p-4 sm:p-10">
         <h1 className="text-Gray font-medium text-2xl">Contact Us</h1>
         <div className="mt-6">
           <p className="text-Gray">Address</p>
@@ -43,7 +45,7 @@ function Footer() {
         </div>
         <div className="mt-6">
           <p className="text-Gray">General Enquiry:</p>
-          <h1 className="font-medium ">Kiev.Florist.Studio@gmail.com</h1>
+          <h1 className="font-medium truncate md:truncate-none ">Kiev.Florist.Studio@gmail.com</h1>
         </div>
         <h1 className="text-Gray mt-6 font-medium text-2xl">Follow Us</h1>
         <div className="mt-6 flex flex-row justify-between text-2xl">
@@ -52,11 +54,11 @@ function Footer() {
           <FontAwesomeIcon icon={faFacebookF} />
           <FontAwesomeIcon icon={faXTwitter} />
           <FontAwesomeIcon icon={faTelegram} />
-          <FontAwesomeIcon icon={faBars} />
+          
         </div>
       </div>
-
-      <div className="border border-l-0 border-y-1 border-r-1 border-solid border-Black flex flex-col flex flex-col justify-between p-10">
+      {/* div # */}
+      <div className="border border-l-0 border-y-1 border-r-1 border-solid border-Black flex flex-col flex flex-col justify-between p-4 sm:p-10">
         <h1 className="text-Gray font-medium text-2xl">Shop</h1>
         <div className="font-medium mt-6">
           <p>All Products</p>
@@ -73,7 +75,8 @@ function Footer() {
           <p>Wedding & Event Decor</p>
         </div>
       </div>
-      <div className="border border-l-0 border-y-1 border-r-1 border-solid border-Black flex flex-col flex flex-col p-10">
+      {/* div # */}
+      <div className="border border-l-0 border-y-1 border-r-1 border-solid border-Black flex flex-col flex flex-col p-4 sm:p-10">
         <h1 className="text-Gray font-medium text-2xl">About Us</h1>
         <div className="mt-6">
           <p>Our Story</p>
@@ -84,9 +87,7 @@ function Footer() {
           <p>Terms & Conditions</p>
           <p>Private Policy</p>
         </div>
-      </div> */}
-
-      
+      </div>
     </div>
   );
 }

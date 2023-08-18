@@ -60,7 +60,7 @@ function Top() {
         {/* toggled menue */}
 
         {isNavVisible && (
-          <div className=" md:hidden sm:w-1/2">
+          <div className=" md:hidden sm:w-1/2 z-10 relative">
             <span onClick={toggleNavVisibility} className="p-6  border border-Black block ">
               <FontAwesomeIcon icon={faXmark} />
             </span>
