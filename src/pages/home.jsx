@@ -1,6 +1,10 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import {
+  faArrowRight,
+  faArrowLeft,
+  faPhone,
+} from "@fortawesome/free-solid-svg-icons";
 
 function Home() {
   return (
@@ -195,40 +199,110 @@ function Home() {
 
           <div className="flex flex-col p-4 sm:p-20 border border-l-0 border-solid border-Black border-t-0">
             <p className="  font-semibold text-[20px] sm:text-[38px]">
-              Stylish bouquets by florists
+              On-time delivery
             </p>
 
             <p className=" pt-4">
-              At our floral studio, our professional florists craft the most
-              elegant and stylish bouquets using only the freshest and highest
-              quality materials available. We stay up-to-date with the latest
-              floral design trends and offer unique arrangements that are sure
-              to impress. Let us brighten up your day with our stunning bouquets
-              and same-day delivery service.
+              Never miss a moment with our on-time flower delivery service. Our
+              couriers will deliver your bouquet personally, without boxes, to
+              ensure it arrives in perfect condition. Trust us to deliver your
+              thoughtful gift reliably.
             </p>
           </div>
 
           <div className="flex flex-col p-4 sm:p-20 border border-l-0 border-solid border-Black border-t-0">
             <p className="  font-semibold text-[20px] sm:text-[38px]">
-              Stylish bouquets by florists
+              Safe payment
             </p>
 
             <p className=" pt-4">
-              At our floral studio, our professional florists craft the most
-              elegant and stylish bouquets using only the freshest and highest
-              quality materials available. We stay up-to-date with the latest
-              floral design trends and offer unique arrangements that are sure
-              to impress. Let us brighten up your day with our stunning bouquets
-              and same-day delivery service.
+              You can feel secure when placing an order with us, as we use
+              industry-standard security measures to protect your payment
+              information. Your transaction will be safe and hassle-free, so you
+              can shop with confidence.
+            </p>
+          </div>
+
+          <div className="flex flex-col p-4 sm:p-20 border border-l-0 border-solid border-Black border-t-0">
+            <p className="  font-semibold text-[20px] sm:text-[38px]">
+              Subscription by your needs
+            </p>
+
+            <p className=" pt-4">
+              With our subscription service tailored to your specific needs, you
+              can enjoy the convenience of having beautiful bouquets delivered
+              straight to your door at regular intervals. Our flexible service
+              is perfect for busy individuals or those who want to ensure they
+              always have fresh flowers on hand. You'll save time and money with
+              this hassle-free solution to your floral needs.
             </p>
           </div>
         </div>
       </div>
-
+      {/* grid md:grid-cols-2  md:grid-rows-1 grid-cols-1 grid-rows-2 */}
       {/* 5*/}
+      <div className="flex md:flex-row flex-col-reverse">
+        {/* a */}
+        <div className=" w-full flex flex-col   ">
+          <div className=" w-full border border-b p-20">
+            <p className="font-semibold text-[20px] sm:text-[38px]">
+              To Contact Us
+            </p>
+            <p className="mt-6">We will call you back</p>
+            <form className="mt-4 grid grid-cols-2 gap-4" action="">
+              <input
+                className="p-4 border border-solid border-Gray"
+                type="text"
+                placeholder="+380 XX XXX XX XX"
+              />
+              <button className=" py-4 px-6 bg-Black text-White">
+                BOOK A CALL
+              </button>
+            </form>
+          </div>
+          <div className=" h-full w-full border grid sm:grid-rows-1 sm:grid-cols-2  grid-rows-2 grid-cols-1">
+            <div className=" flex flex-col  items-center  border border-solid border-Black">
+              <p className="font-semibold w-full text-center border border-solid border-Black border-t-0 border-x-0 text-[20px] sm:text-[38px]">
+                Phone
+              </p>
+              <div className="py-7 flex flex-col justify-center h-full">
+                <span className="flex ">
+                  <FontAwesomeIcon icon={faPhone} />{" "}
+                  <p className="ml-2">+380980099777</p>
+                </span>
+                <span className="flex mt-6 ">
+                  <FontAwesomeIcon icon={faPhone} />{" "}
+                  <p className="ml-2">+380980099111</p>
+                </span>
+              </div>
+            </div>
+
+            <div className=" flex flex-col  items-center  border border-solid border-Black border-l-0  ">
+              <p className="font-semibold w-full text-center border border-solid border-Black text-[20px] sm:text-[38px]  border-x-0 border-t-0">
+                Adrsess
+              </p>
+              <div className="py-7 flex flex-col justify-center h-full p-4">
+                <p>opening hours: 8 to 11 p.m.</p>
+
+                <p className="mt-6">15/4 Khreshchatyk Street, Kyiv </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* b */}
+        <div className="bg-blue-600  w-full   ">
+          <img
+            src="/images/Right colum.png "
+            className="md:h-[720px] h-[580px] w-full"
+          ></img>
+          <div></div>
+        </div>
+      </div>
+
+      {/* 6*/}
       <div className="grid md:grid-cols-2  grid-cols-1">
-        <div className="bg-red-600 h-10 w-full"></div>
-        <div className="bg-blue-600 h-10 w-full"></div>
+        <div className="bg-pink-600 h-10 w-full"> 6r</div>
+        <div className="bg-white h-10 w-full">6w</div>
       </div>
     </div>
   );
