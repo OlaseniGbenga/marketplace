@@ -228,7 +228,7 @@ function Home() {
               Subscription by your needs
             </p>
 
-            <p className=" pt-4">
+            <p className=" pt-4 ">
               With our subscription service tailored to your specific needs, you
               can enjoy the convenience of having beautiful bouquets delivered
               straight to your door at regular intervals. Our flexible service
@@ -244,14 +244,14 @@ function Home() {
       <div className="flex md:flex-row flex-col-reverse">
         {/* a */}
         <div className=" w-full flex flex-col   ">
-          <div className=" w-full border border-b p-20">
+          <div className=" w-full border border-b sm:p-20 p-4 ">
             <p className="font-semibold text-[20px] sm:text-[38px]">
               To Contact Us
             </p>
             <p className="mt-6">We will call you back</p>
             <form className="mt-4 grid grid-cols-2 gap-4" action="">
               <input
-                className="p-4 border border-solid border-Gray"
+                className="p-4  border border-solid border-Gray"
                 type="text"
                 placeholder="+380 XX XXX XX XX"
               />
@@ -290,19 +290,41 @@ function Home() {
           </div>
         </div>
         {/* b */}
-        <div className="bg-blue-600  w-full   ">
+        <div className="  w-full   ">
           <img
             src="/images/Right colum.png "
-            className="md:h-[720px] h-[580px] w-full"
+            className="md:h-[720px] h-[330px] w-full"
           ></img>
           <div></div>
         </div>
       </div>
 
-      {/* 6*/}
+      {/* 6 */}
+      <div>
+        <p className="font-semibold text-[20px] sm:text-[38px] flex justify-center py-20">
+          Our Service
+        </p>
+      </div>
+
+      {/* 7*/}
       <div className="grid md:grid-cols-2  grid-cols-1">
-        <div className="bg-pink-600 h-10 w-full"> 6r</div>
-        <div className="bg-white h-10 w-full">6w</div>
+        <div className=" w-full">
+          <img
+            src="/images/image 1.png "
+            className="md:h-[600px] h-[330px] w-full"
+          ></img>
+        </div>
+
+        <div className="bg-white  w-full flex flex-col justify-center items-center sm:p-20 p-4 h-full border border-solid border-Black">
+          <p> SERVICES</p>
+          <p className="font-semibold text-[20px] sm:text-[38px]">Flower Subcriptions</p>
+          <p className="text-center">
+            Experience the convenience and savings of regular flower deliveries
+            with our flexible subscription service - up to 30% more profitable
+            than one-time purchases.
+          </p>
+          <div className="mt-12 p-6 border border-solid border-Black">Subscribe Now</div>
+        </div>
       </div>
     </div>
   );
