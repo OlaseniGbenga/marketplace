@@ -4,6 +4,8 @@ import {
   faArrowRight,
   faArrowLeft,
   faPhone,
+  faAngleRight,
+  faAngleLeft,
 } from "@fortawesome/free-solid-svg-icons";
 
 function Home() {
@@ -81,7 +83,7 @@ function Home() {
       {/* 2 */}
       <div className="grid md:grid-cols-2 grid-cols-1 ">
         <div className="  hidden md:block border border-solid border-Black border-t-0 border-r-0"></div>
-        <div className=" grid   w-full">
+        <div className=" grid   w-fur mll">
           {/* container */}
           <div className=" grid  grid-cols-2  ">
             <div className="border border-solid border-black border-r-0 border-t-0 p-6 flex flex-col justify-between items-center">
@@ -315,16 +317,51 @@ function Home() {
           ></img>
         </div>
 
-        <div className="bg-white  w-full flex flex-col justify-center items-center sm:p-20 p-4 h-full border border-solid border-Black">
+        <div className="bg-white  w-full flex flex-col justify-center items-center sm:p-20 px-4 py-20 h-full border border-solid border-Black">
           <p> SERVICES</p>
-          <p className="font-semibold text-[20px] sm:text-[38px]">Flower Subcriptions</p>
+          <p className="font-semibold text-[20px] sm:text-[38px]">
+            Flower Subcriptions
+          </p>
           <p className="text-center">
             Experience the convenience and savings of regular flower deliveries
             with our flexible subscription service - up to 30% more profitable
             than one-time purchases.
           </p>
-          <div className="mt-12 p-6 border border-solid border-Black">Subscribe Now</div>
+          <div className="mt-12 p-6 border border-solid border-Black">
+            Subscribe Now
+          </div>
         </div>
+      </div>
+
+      <div className="w-full h-full bg-hero-pattern flex justify-center items-center flex-col sm:p-20 px-4 py-20  text-White">
+     
+        
+        <p>Services</p>
+        <p className="font-semibold text-[20px] sm:text-[38px]">Wedding & Event Decor</p>
+        <p className="text-center">Let our team of expert florists and designers create stunning, on-trend floral décor for your special day. Trust us to bring your vision to life.</p>
+       
+        <div className="mt-12 p-6 border border-solid border-White">
+        Inquire Now
+        </div>
+      
+      </div>
+      {/* 9 */}
+      <div className="flex items-center justify-center md:p-20 py-20">
+      <FontAwesomeIcon className="md:block  hidden" icon={faAngleLeft} />
+    
+        <div className="flex justify-center items-center flex-col px-10">
+        
+          <div><img src="/images/google logo.png"></img>
+          <p>Reviews</p></div>
+          <p className="font-semibold text-[20px] sm:text-[38px]">Our Clients Say</p>
+          <p>“Ordered flowers online and they were the best bouquet! Impressed everyone around. Highly recommend this flower shop!”</p>
+          <p>– Ronald Richards</p>
+          <div className="mt-12 p-6 border border-solid border-Black">
+            Read Review
+          </div>
+        </div>
+
+        <FontAwesomeIcon className="md:block  hidden" icon={faAngleRight} />
       </div>
     </div>
   );

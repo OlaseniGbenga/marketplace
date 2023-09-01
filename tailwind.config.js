@@ -35,7 +35,10 @@ export default {
           '75%': { transform: 'translateY(-30px)' },
         },
       },
-      
+      backgroundImage: {
+        'hero-pattern': "url('./images/service.png')",
+        
+      },
 
     },
   },
