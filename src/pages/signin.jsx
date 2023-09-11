@@ -1,8 +1,14 @@
 import React from 'react'
+import Auth from '../component/auth'
 
 function Signin() {
   return (
-    <div>signin</div>
+    <div>
+      <Auth/>
+<p>sign in</p>
+
+    </div>
+    
   )
 }
 

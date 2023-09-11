@@ -6,7 +6,7 @@ import Home from "./pages/home";
 import Login from "./pages/login";
 import Signup from "./pages/signup";
 import NotFoundPage from "./pages/notfoundpage";
-
+import FreshFlowers from "./pages/categories/freshFlowers";
 
 // component
 import Top from "./component/top";
@@ -15,24 +15,23 @@ import Contact from "./pages/contact";
 import Cart from "./pages/cart";
 import Signin from "./pages/signin";
 
-
-
 function App() {
   return (
     <div>
       <Router>
         {/* <Header /> */}
-        <Top/>
+        <Top />
         <Routes>
-          <Route exact path="/" element={<Home/>} />
+          <Route exact path="/" element={<Home />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/signup" element={<Signup />} />
-          <Route exact path="/contact" element={<Contact/>} />
-          <Route exact path="/cart" element={<Cart/>} />
-          <Route exact path="/signin" element={<Signin/>} />
-          <Route path="*" element={<NotFoundPage/>} />
+          <Route exact path="/contact" element={<Contact />} />
+          <Route exact path="/cart" element={<Cart />} />
+          <Route exact path="/signin" element={<Signin />} />
+          <Route exact path="/freshflowers" element={<FreshFlowers />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
-        <Footer/>
+        <Footer />
       </Router>
     </div>
   );

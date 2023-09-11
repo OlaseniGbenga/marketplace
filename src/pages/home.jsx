@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowRight,
@@ -50,12 +51,13 @@ function Home() {
             <p className="font-semibold text-[20px] sm:text-[38px]">
               Fresh Flowers
             </p>
-            <span className="flex items-center">
+            <Link to="freshflowers"> <span className="flex items-center">
               <p className="pr-4 font-semibold text-[12px] sm:text-base">
                 Shop now
               </p>{" "}
               <FontAwesomeIcon icon={faArrowRight} />
             </span>
+            </Link>
           </div>
           <div className="">
             <img src="/images/card item.png " className="h-full w-full"></img>
