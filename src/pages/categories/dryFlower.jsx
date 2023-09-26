@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../config/firebase";
 
-function FreshFlowers() {
+function DryFlowers() {
   const [flowers, setFlowers] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const querySnapshot = await getDocs(collection(db, "flowersForSale"));
+        const querySnapshot = await getDocs(collection(db, "driedFlowers"));
         const flowerData = [];
         querySnapshot.forEach((doc) => {
           flowerData.push({ id: doc.id, ...doc.data() });
@@ -26,7 +26,7 @@ function FreshFlowers() {
     <div className=" w-full grid sm:grid-cols-2  grid-cols-1 ">
       {/* div1 */}
       <div className=" w-full  ">
-        <img src="../../../public/images/Fresh Flowers.png " alt="" />
+        <img className=" w-full  " src="../../../public/images/Dried Flowers.png " alt="" />
       </div>
       {/* div2 */}
       <div className=" w-full bg-Gray grid sm:grid-cols-2 grid-rows-1 grid-cols-1 ">
@@ -43,7 +43,7 @@ function FreshFlowers() {
               
              
             
-            }} className= "md:h-[230px] text-white font-bold  flex flex-col justify-center items-center sm:h-[200px] h-[350px]">
+            }} className= "md:h-[270px] text-white font-bold  flex flex-col justify-center items-center sm:h-[200px] h-[350px]">
             
               <h3 >{flower.flowerName}</h3>
               <p> ${flower.flowerPrice}</p>
@@ -66,4 +66,4 @@ function FreshFlowers() {
   );
 }
 
-export default FreshFlowers;
+export default DryFlowers;

@@ -7,6 +7,9 @@ import Login from "./pages/login";
 import Signup from "./pages/signup";
 import NotFoundPage from "./pages/notfoundpage";
 import FreshFlowers from "./pages/categories/freshFlowers";
+import DryFlowers from "./pages/categories/dryFlower";
+import LivePlants from "./pages/categories/livePlant";
+import AromaCandles from "./pages/categories/aromaCandles";
 
 // component
 import Top from "./component/top";
@@ -29,6 +32,9 @@ function App() {
           <Route exact path="/cart" element={<Cart />} />
           <Route exact path="/signin" element={<Signin />} />
           <Route exact path="/freshflowers" element={<FreshFlowers />} />
+          <Route exact path="/driedflowers" element={<DryFlowers/>} />
+          <Route exact path="/liveplants" element={<LivePlants/>} />
+          <Route exact path="/aromacandles" element={<AromaCandles/>} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         <Footer />

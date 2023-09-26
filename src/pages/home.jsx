@@ -73,12 +73,13 @@ function Home() {
             <p className="font-semibold text-[20px] sm:text-[38px]">
               Dried Flowers
             </p>
-            <span className="flex items-center">
-              <FontAwesomeIcon icon={faArrowLeft} />{" "}
-              <p className="pl-4 font-semibold text-[12px] sm:text-base ">
+            <Link to="driedflowers"> <span className="flex items-center">
+              <p className="pr-4 font-semibold text-[12px] sm:text-base">
                 Shop now
-              </p>
+              </p>{" "}
+              <FontAwesomeIcon icon={faArrowLeft} />
             </span>
+            </Link>
           </div>
         </div>
       </div>
@@ -93,12 +94,13 @@ function Home() {
               <p className="font-semibold text-[20px] sm:text-[38px]">
                 Live Flowers
               </p>
-              <span className="flex items-center">
-                <p className="pr-4 font-semibold text-[12px] sm:text-base">
-                  Shop now
-                </p>{" "}
-                <FontAwesomeIcon icon={faArrowRight} />
-              </span>
+              <Link to="liveplants"> <span className="flex items-center">
+              <p className="pr-4 font-semibold text-[12px] sm:text-base">
+                Shop now
+              </p>{" "}
+              <FontAwesomeIcon icon={faArrowRight} />
+            </span>
+            </Link>
             </div>
             <div className="">
               <img
@@ -120,12 +122,13 @@ function Home() {
               <p className="font-semibold text-[20px] sm:text-[38px]">
                 Aroma Candels
               </p>
-              <span className="flex items-center">
-                <FontAwesomeIcon icon={faArrowLeft} />
-                <p className="pl-4 font-semibold text-[12px] sm:text-base">
-                  Shop now
-                </p>
-              </span>
+              <Link to="aromacandles"> <span className="flex items-center">
+              <p className="pr-4 font-semibold text-[12px] sm:text-base">
+                Shop now
+              </p>{" "}
+              <FontAwesomeIcon icon={faArrowLeft} />
+            </span>
+            </Link>
             </div>
           </div>
           {/* container */}
