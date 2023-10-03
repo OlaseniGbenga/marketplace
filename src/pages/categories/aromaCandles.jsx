@@ -26,7 +26,7 @@ function AromaCandles() {
     <div className=" w-full grid sm:grid-cols-2  grid-cols-1 ">
       {/* div1 */}
       <div className=" w-full  ">
-        <img className=" w-full  " src="../../../public/images/card item (3).png " alt="" />
+        <img className=" w-full  " src="images/card item (3).png " alt="" />
       </div>
       {/* div2 */}
       <div className=" w-full bg-Gray grid sm:grid-cols-2 grid-rows-1 grid-cols-1 ">
@@ -43,7 +43,7 @@ function AromaCandles() {
               
              
             
-            }} className= "md:h-[270px] text-white font-bold  flex flex-col justify-center items-center sm:h-[200px] h-[350px]">
+            }} className= "md:h-[270px] text-black font-bold  flex flex-col justify-center items-center sm:h-[200px] h-[350px]">
             
               <h3 >{flower.flowerName}</h3>
               <p> ${flower.flowerPrice}</p>

@@ -10,6 +10,7 @@ import FreshFlowers from "./pages/categories/freshFlowers";
 import DryFlowers from "./pages/categories/dryFlower";
 import LivePlants from "./pages/categories/livePlant";
 import AromaCandles from "./pages/categories/aromaCandles";
+import Fresheners from "./pages/categories/fresheners";
 
 // component
 import Top from "./component/top";
@@ -35,6 +36,7 @@ function App() {
           <Route exact path="/driedflowers" element={<DryFlowers/>} />
           <Route exact path="/liveplants" element={<LivePlants/>} />
           <Route exact path="/aromacandles" element={<AromaCandles/>} />
+          <Route exact path="/fresheners" element={<Fresheners/>} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         <Footer />
