@@ -3,25 +3,61 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../config/firebase";
 
 function Fresheners() {
+  // container to keep flower object from firebase
   const [flowers, setFlowers] = useState([]);
-
+  const storedBuy = localStorage.getItem("buy") || [];
   useEffect(() => {
     const fetchData = async () => {
       try {
         const querySnapshot = await getDocs(collection(db, "fresheners"));
         const flowerData = [];
+
         querySnapshot.forEach((doc) => {
-          flowerData.push({ id: doc.id, ...doc.data(), quantity: 0 });
+          let quantity = 0;
+          if (storedBuy) {
+            const parsedBuy = JSON.parse(storedBuy);
+            const matchingItem = parsedBuy.find((item) => item.id === doc.id);
+            if (matchingItem) {
+              quantity = matchingItem.quantity;
+            }
+          }
+
+          flowerData.push({ id: doc.id, ...doc.data(), quantity });
         });
+
         setFlowers(flowerData);
+
+        // Update the buy state after setting flowers
+        setBuy(flowerData.filter((flower) => flower.quantity > 0));
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
-    console.log(flowers);
-    fetchData();
-  }, []); // The empty dependency array ensures that this effect runs once when the component mounts.
 
+    fetchData();
+  }, []);
+
+  // The empty dependency array ensures that this effect runs once when the component mounts.
+
+  // store selected item
+  const [buy, setBuy] = useState([]);
+  
+  useEffect(() => {
+    const knowBuy = () => {
+      setBuy(flowers.filter((flower) => flower.quantity > 0));
+    };
+    knowBuy();
+  }, [flowers]);
+
+  // Store slected item 'buy' in localStorage whenever it changes
+  useEffect(() => {
+    
+    localStorage.setItem("buy", JSON.stringify(buy));
+   
+  }, [buy]);
+
+
+  // incremental and decremental function
   const incrementQuantity = (index) => {
     const updatedFlowers = [...flowers];
     updatedFlowers[index].quantity += 1;
@@ -36,21 +72,7 @@ function Fresheners() {
     }
   };
 
-  const [buy, setBuy] = useState([]);
-
-  useEffect(() => {
-    const knowBuy = () => {
-      setBuy(flowers.filter((flower) => flower.quantity > 0));
-    };
-    knowBuy();
-  }, [flowers]);
- 
-
-
-  console.log(buy);
-
   
-
   return (
     <div className=" w-full grid sm:grid-cols-2  grid-cols-1 ">
       {/* div1 */}
@@ -76,7 +98,7 @@ function Fresheners() {
             <div className=" flex items-center justify-center ">
               <span
                 onClick={() => incrementQuantity(index)}
-                className="p-2  bg-Gray text-white rounded align-middle mr-2"
+                className="p-2 cursor-pointer bg-Gray text-white rounded align-middle mr-2"
               >
                 +
               </span>
@@ -86,7 +108,7 @@ function Fresheners() {
               </span>
               <span
                 onClick={() => decrementQuantity(index)}
-                className="p-2  bg-Gray text-white rounded align-middle"
+                className="p-2 cursor-pointer bg-Gray text-white rounded align-middle"
               >
                 -
               </span>
