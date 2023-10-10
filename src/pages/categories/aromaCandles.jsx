@@ -22,6 +22,39 @@ function AromaCandles() {
     fetchData();
   }, []); // The empty dependency array ensures that this effect runs once when the component mounts.
 
+  // store selected item
+  const [buy, setBuy] = useState([]);
+  
+  useEffect(() => {
+    const knowBuy = () => {
+      setBuy(flowers.filter((flower) => flower.quantity > 0));
+    };
+    knowBuy();
+  }, [flowers]);
+
+  // Store slected item 'buy' in localStorage whenever it changes
+  useEffect(() => {
+    
+    localStorage.setItem("buyFreshener", JSON.stringify(buy));
+   
+  }, [buy]);
+
+
+  // incremental and decremental function
+  const incrementQuantity = (index) => {
+    const updatedFlowers = [...flowers];
+    updatedFlowers[index].quantity += 1;
+    setFlowers(updatedFlowers);
+  };
+
+  const decrementQuantity = (index) => {
+    const updatedFlowers = [...flowers];
+    if (updatedFlowers[index].quantity > 0) {
+      updatedFlowers[index].quantity -= 1;
+      setFlowers(updatedFlowers);
+    }
+  };
+
   return (
     <div className=" w-full grid sm:grid-cols-2  grid-cols-1 ">
       {/* div1 */}

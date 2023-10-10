@@ -1,46 +1,61 @@
 import React, { useEffect, useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../../config/firebase";
+// import { collection, getDocs } from "firebase/firestore";
+// import { db } from "../../config/firebase";
+import useFetchFlowerData from "../../component/fetch";
 
 function Fresheners() {
   // container to keep flower object from firebase
-  const [flowers, setFlowers] = useState([]);
-  const storedBuy = localStorage.getItem("buy") || [];
+  
+  const storedBuy = localStorage.getItem("buyFreshener") || [];
+  const collectionName = "fresheners";
+ 
+  const { data, selectedItem} = useFetchFlowerData(collectionName, storedBuy);
+
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const querySnapshot = await getDocs(collection(db, "fresheners"));
-        const flowerData = [];
+    // Update the state when data changes
+    setFlowers(data);
+    setBuy(selectedItem);
+  }, [data, selectedItem]);
 
-        querySnapshot.forEach((doc) => {
-          let quantity = 0;
-          if (storedBuy) {
-            const parsedBuy = JSON.parse(storedBuy);
-            const matchingItem = parsedBuy.find((item) => item.id === doc.id);
-            if (matchingItem) {
-              quantity = matchingItem.quantity;
-            }
-          }
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const querySnapshot = await getDocs(collection(db, "fresheners"));  //fresheners = dynamic
+  //       const flowerData = [];
 
-          flowerData.push({ id: doc.id, ...doc.data(), quantity });
-        });
+  //       querySnapshot.forEach((doc) => {
+  //         let quantity = 0;
+  //         if (storedBuy) {
+  //           const parsedBuy = JSON.parse(storedBuy);
+  //           const matchingItem = parsedBuy.find((item) => item.id === doc.id);
+  //           if (matchingItem) {
+  //             quantity = matchingItem.quantity;
+  //           }
+  //         }
 
-        setFlowers(flowerData);
+  //         flowerData.push({ id: doc.id, ...doc.data(), quantity });
+  //       });
 
-        // Update the buy state after setting flowers
-        setBuy(flowerData.filter((flower) => flower.quantity > 0));
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
+  //       setFlowers(flowerData);
 
-    fetchData();
-  }, []);
+  //       // Update the buy state after setting flowers
+  //       setBuy(flowerData.filter((flower) => flower.quantity > 0));
+  //     } catch (error) {
+  //       console.error("Error fetching data:", error);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, []);
 
   // The empty dependency array ensures that this effect runs once when the component mounts.
 
   // store selected item
-  const [buy, setBuy] = useState([]);
+  const [flowers, setFlowers] = useState(data);
+ 
+  const [buy, setBuy] = useState(selectedItem);
+
   
   useEffect(() => {
     const knowBuy = () => {
@@ -52,7 +67,7 @@ function Fresheners() {
   // Store slected item 'buy' in localStorage whenever it changes
   useEffect(() => {
     
-    localStorage.setItem("buy", JSON.stringify(buy));
+    localStorage.setItem("buyFreshener", JSON.stringify(buy));
    
   }, [buy]);
 
