@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+//firebase
+import {  onAuthStateChanged } from "firebase/auth";
+import { auth } from '../config/firebase';
 
 // font awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -17,6 +20,30 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 function Top() {
+
+  //check if a user  is signed in to display signin or logoff nav
+  const [signed, setSigned] = useState(null);
+  
+  useEffect(()=>{
+    const unsubscribe = async () => {
+      try{
+        onAuthStateChanged(auth, (user) => {
+          if (user) {
+           setSigned(user)
+          
+          } else {
+            setSigned(null)
+          }
+        });
+      }
+      catch{
+
+      }
+    }
+    unsubscribe()
+  },[signed]);
+  
+  //toggle visibility of nav
   const [isNavVisible, setNavVisibility] = useState(false);
   const [isMavVisible, setMavVisibility] = useState(true);
   
@@ -39,7 +66,16 @@ function Top() {
               <Link to="contact">Contact</Link>
             </li>
             <li className=" col-start-7 border sm:border-x sm:border-y-0  border-b-0  border-solid border-Black flex items-center sm:justify-center  py-[2rem] px-[1.5rem]">
-              <Link to="signin">Signin</Link>
+            {signed ? (
+             <Link to="logoff">Logoff</Link>
+        ) : (
+       
+
+          <Link to="signin">Signin</Link>
+        )}
+              
+              
+             
             </li>
             <li className="col-start-8 border  sm:border-x-0 sm:border-y-0 border-b-0 border-solid border-Black flex items-center sm:justify-center  py-[2rem] px-[1.5rem]">
               <Link to="cart">Cart</Link>

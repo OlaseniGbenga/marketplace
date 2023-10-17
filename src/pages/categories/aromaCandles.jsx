@@ -1,30 +1,28 @@
 import React, { useEffect, useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../../config/firebase";
+import useFetchFlowerData from "../../component/fetch";
+
 
 function AromaCandles() {
-  const [flowers, setFlowers] = useState([]);
+// container to keep flower object from local storage
+  const storedBuy = localStorage.getItem("buyAromaCandles") || [];
+  const collectionName = "aromaCandles";
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const querySnapshot = await getDocs(collection(db, "aromaCandles"));
-        const flowerData = [];
-        querySnapshot.forEach((doc) => {
-          flowerData.push({ id: doc.id, ...doc.data() });
-        });
-        setFlowers(flowerData);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-    console.log(flowers);
-    fetchData();
-  }, []); // The empty dependency array ensures that this effect runs once when the component mounts.
+  const { data, selectedItem} = useFetchFlowerData(collectionName, storedBuy);
+ 
+  // Update the state when data changes, data gotten from the useFetchFlowerData hook
+   useEffect(() => {
+    setFlowers(data);
+    setBuy(selectedItem);
+  }, [data, selectedItem]);
 
+ 
+
+  // store datas to be displayed
+  const [flowers, setFlowers] = useState(data);
   // store selected item
-  const [buy, setBuy] = useState([]);
-  
+  const [buy, setBuy] = useState(selectedItem);
+
+  //filter selected item
   useEffect(() => {
     const knowBuy = () => {
       setBuy(flowers.filter((flower) => flower.quantity > 0));
@@ -34,9 +32,7 @@ function AromaCandles() {
 
   // Store slected item 'buy' in localStorage whenever it changes
   useEffect(() => {
-    
-    localStorage.setItem("buyFreshener", JSON.stringify(buy));
-   
+    localStorage.setItem("buyAromaCandles", JSON.stringify(buy));
   }, [buy]);
 
 
@@ -54,7 +50,6 @@ function AromaCandles() {
       setFlowers(updatedFlowers);
     }
   };
-
   return (
     <div className=" w-full grid sm:grid-cols-2  grid-cols-1 ">
       {/* div1 */}
@@ -64,7 +59,7 @@ function AromaCandles() {
       {/* div2 */}
       <div className=" w-full bg-Gray grid sm:grid-cols-2 grid-rows-1 grid-cols-1 ">
      
-          {flowers.map((flower) => (
+          {flowers.map((flower, index) => (
             <div style={{
               backgroundImage: `url(${flower.flowerImage})`,
               backgroundSize: "100% 100%",
@@ -82,9 +77,15 @@ function AromaCandles() {
               <p> ${flower.flowerPrice}</p>
 
               <div className=" flex items-center justify-center ">
-                <span className="p-2  bg-black text-white rounded align-middle mr-2">+</span>
-                <span className="p-2  bg-black text-white rounded align-middle mr-2">0</span>
-                <span className="p-2  bg-black text-white rounded align-middle">-</span>
+                <span 
+                onClick={() => incrementQuantity(index)}
+                className="p-2 cursor-pointer bg-black text-white rounded align-middle mr-2">+</span>
+                <span className="p-2   bg-black text-white rounded align-middle mr-2">
+                {flower.quantity}
+                </span>
+                <span 
+                onClick={() => decrementQuantity(index)}
+                className="p-2 cursor-pointer bg-black text-white rounded align-middle">-</span>
               </div>
 
               {/* Add other flower details you want to display */}

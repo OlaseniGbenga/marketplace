@@ -1,12 +1,10 @@
 import React from 'react'
-import Auth from '../component/auth'
+import Signu from '../component/auth'
+
 
 function Login() {
   return (
-    <div className='bg-red-600'>
-     
-      <Auth/>
-    </div>
+   <Signu></Signu>
   )
 }
 

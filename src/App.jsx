@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 // pages
 import Home from "./pages/home";
 import Login from "./pages/login";
-import Signup from "./pages/signup";
+
 import NotFoundPage from "./pages/notfoundpage";
 import FreshFlowers from "./pages/categories/freshFlowers";
 import DryFlowers from "./pages/categories/dryFlower";
@@ -18,6 +18,8 @@ import Footer from "./component/footer";
 import Contact from "./pages/contact";
 import Cart from "./pages/cart";
 import Signin from "./pages/signin";
+import Signup from "./pages/signup";
+import LogOff from "./pages/logOff";
 
 function App() {
   return (
@@ -28,10 +30,12 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/login" element={<Login />} />
-          <Route exact path="/signup" element={<Signup />} />
+          
           <Route exact path="/contact" element={<Contact />} />
           <Route exact path="/cart" element={<Cart />} />
           <Route exact path="/signin" element={<Signin />} />
+          <Route exact path="/signup" element={<Signup />} />
+          <Route exact path="/logoff" element={<LogOff />} />
           <Route exact path="/freshflowers" element={<FreshFlowers />} />
           <Route exact path="/driedflowers" element={<DryFlowers/>} />
           <Route exact path="/liveplants" element={<LivePlants/>} />

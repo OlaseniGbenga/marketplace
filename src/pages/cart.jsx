@@ -1,39 +1,32 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState, useEffect } from "react";
 
 function Cart() {
+  const [data, setData] = useState([]); // Initialize data as an empty array
+
+  // // Function to retrieve data from local storage for a specific key
  
-
-  const [plant, setPlant] = useState([]);
-
-  async function fetchData() {
-    try {
-      const response = await fetch('https://trefle.io/api/v1/plants?token=droQkF9Gg5gWtNK_NF8Eq0VLASGwXcjp8uajgc1LQTM');
-
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-        
-      }
-
-      const data = await response.json();
-
-      setPlant(data);
-
-      console.log(data);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-      console.log('error occured');
-    }
-  }
-
   useEffect(() => {
-    // Call fetchData when the component mounts
-    fetchData();
-  }, []);
+    // Function to retrieve data from local storage for a specific key
+    const retrieveDataFromLocalStorage = (key) => {
+      const storedData = localStorage.getItem(key);
+      return storedData ? JSON.parse(storedData) : [];
+    };
 
+    // Retrieve data for each key and update the state
+    const newData = [
+      ...retrieveDataFromLocalStorage("buyAromaCandles"),
+      ...retrieveDataFromLocalStorage("buyDriedFlowers"),
+      ...retrieveDataFromLocalStorage("buyFreshener"),
+      ...retrieveDataFromLocalStorage("buyFreshFlower"),
+      ...retrieveDataFromLocalStorage("buyLivePlant"),
+    ];
 
-  return (
-    <div>Cart</div>
-  )
+    setData(newData);
+
+    console.log(data);
+  }, [data]);
+
+  return <div>Cart</div>;
 }
 
-export default Cart
+export default Cart;
