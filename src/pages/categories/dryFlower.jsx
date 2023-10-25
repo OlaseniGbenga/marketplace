@@ -9,11 +9,11 @@ function DryFlowers() {
  
   const { data, selectedItem} = useFetchFlowerData(collectionName, storedBuy);
  
-   // Update the state when data changes, data gotten from the useFetchFlowerData hook
-   useEffect(() => {
-    setFlowers(data);
-    setBuy(selectedItem);
-  }, [data, selectedItem]);
+  //  // Update the state when data changes, data gotten from the useFetchFlowerData hook
+  //  useEffect(() => {
+  //   setFlowers(data);
+  //   setBuy(selectedItem);
+  // }, [data, selectedItem]);
 
  
 
