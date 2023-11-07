@@ -15,8 +15,10 @@ function Cart() {
         onAuthStateChanged(auth, (user) => {
           if (user) {
             setSigned(user);
+            console.log("User UID: here here " + user.uid); // Log the user's UID
           } else {
             setSigned(null);
+            console.log("User UID: here here "); // Log the user's UID
           }
         });
       } catch {}
@@ -45,9 +47,7 @@ function Cart() {
     ];
 
     setData(newData);
-
-    console.log(data);
-  }, [data]);
+  },[]); //[data]
 
   return (
     <div className="px-4">
@@ -60,10 +60,17 @@ function Cart() {
               </div>
               <div className="col-span-3  flex flex-col justify-around p-4">
                 <div className="flex flex-row justify-between items-center">
-<p className="text-xl">{item.flowerName}</p> <p className="bg-Gray p-2 rounded">${item.flowerPrice}</p> <p>x</p>
+                  <p className="text-xl">{item.flowerName}</p>{" "}
+                  <p className="bg-Gray p-2 rounded">${item.flowerPrice}</p>{" "}
+                  <p>x</p>
                 </div>
-                <div className="flex flex-row"><p>-</p><p>{item.quantity}</p> <p>+</p> </div>
-                <div className="font-bold">${item.quantity * item.flowerPrice}</div>
+                <div className="flex flex-row">
+                  <p>-</p>
+                  <p>{item.quantity}</p> <p>+</p>{" "}
+                </div>
+                <div className="font-bold">
+                  ${item.quantity * item.flowerPrice}
+                </div>
               </div>
             </div>
           );

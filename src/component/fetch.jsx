@@ -31,6 +31,8 @@ function useFetchFlowerData(collectionName, localData) {
 
         setData(flowerData);
 
+        console.log ("from fetch.jsx " + flowerData.forEach((flower) => {return flower}))
+
         // Update the buy state after setting flowers
         setSelectedItem(flowerData.filter((flower) => flower.quantity > 0));
       } catch (error) {
