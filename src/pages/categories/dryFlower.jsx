@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import useFetchFlowerData from "../../component/fetch";
 import useFetchFirestoreData from "../../component/fetchData";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, getDoc } from "firebase/firestore";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../../config/firebase";
 
@@ -75,11 +75,63 @@ function DryFlowers() {
   }
 
   // fetching displayed items for users to buy
-  const storedBuy = localStorage.getItem("buyDriedFlowers") || [];
+
+  const fetchData = async () => {
+    try {
+      // Replace "query" with "doc" if you want to fetch a single document by its ID
+      const docSnapshot = await getDoc(doc(db, "buyDriedFlowers", signed.uid));
+      
+      if (docSnapshot.exists()) {
+        // Document data is available in docSnapshot.data()
+        const documentData = docSnapshot.data();
+
+        const arrayOfObjects = Object.values(documentData).map((obj) => {
+          // Map each object to remove numeric keys
+          return {
+            flowerImage: obj.flowerImage,
+            flowerName: obj.flowerName,
+            flowerPrice: obj.flowerPrice,
+            id: obj.id,
+            quantity: obj.quantity
+          };
+        });
+        console.log("Document data:", arrayOfObjects);
+
+        return arrayOfObjects;
+     
+        // You can store or use the data as needed
+      } else {
+        console.log("Document does not exist");
+      }
+    } catch (error) {
+      console.error("Error fetching document:", error);
+    }
+  };
+
+  
+
+
+   let storedBuy;
+  
+  if (signed) {
+    fetchData()
+
+   .then((data) => {
+     storedBuy = data;
+   
+  })
+  .catch((error) => {
+    console.error("Error in fetchData:", error);
+  });
+  } else {
+   storedBuy = localStorage.getItem("buyDriedFlowers") || [];
+  }
 
   const collectionName = "driedFlowers";
 
   const { data, selectedItem } = useFetchFlowerData(collectionName, storedBuy);
+
+  console.log("checking data",data, "checking slected item", selectedItem, "checking storedBuy", storedBuy)
 
   // Update the state when data changes, data gotten from the useFetchFlowerData hook
   useEffect(() => {
